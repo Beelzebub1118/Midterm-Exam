@@ -20,6 +20,18 @@ function validateLoginCredentials($email, $password) {
     }
     return $errors;
 }
+function getSubjectById($id) {
+    // Fetch subject by ID from the database or data source
+}
+
+function updateSubject($id, $subjectCode, $subjectName) {
+    // Update subject in the database or data source
+}
+
+function deleteSubjectById($id) {
+    // Delete subject from the database or data source
+}
+
 function addSubject($subjectCode, $subjectName) {
     // Initialize the subjects array if it's not set
     if (!isset($_SESSION['subjects'])) {
@@ -33,11 +45,11 @@ function addSubject($subjectCode, $subjectName) {
     ];
 }
 function getSubjects() {
-    // Initialize the subjects array if not already set
-    if (!isset($_SESSION['subjects'])) {
-        $_SESSION['subjects'] = [];  // Initialize as an empty array if not set
-    }
-    return $_SESSION['subjects']; // Return the subjects from session
+    // Assuming you're fetching subjects from a database
+    $subjects = []; // Replace this with your actual data fetch logic
+
+    // Example return structure
+  
 }
 function checkLoginCredentials($email, $password, $users) {
     foreach ($users as $user) {

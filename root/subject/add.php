@@ -119,9 +119,10 @@ $subjects = getSubjects() ?? [];
                                     <td><?php echo htmlspecialchars($subject['subject_code']); ?></td>
                                     <td><?php echo htmlspecialchars($subject['subject_name']); ?></td>
                                     <td>
-                                        <a href="edit.php?id=<?php echo $subject['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="delete.php?id=<?php echo $subject['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
-                                    </td>
+    <a href="edit.php?id=<?php echo htmlspecialchars($subject['id'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-warning btn-sm">Edit</a>
+    <a href="delete.php?id=<?php echo htmlspecialchars($subject['id'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger btn-sm">Delete</a>
+</td>
+
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>

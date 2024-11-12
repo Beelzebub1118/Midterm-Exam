@@ -36,7 +36,7 @@ $userEmail = $_SESSION['email'];
                 </div>
 
                 <!-- Logout Link -->
-                <p><a href="logout.php" class="btn btn-danger">Logout</a></p>
+                <p><a href="index.php" class="btn btn-danger">Logout</a></p>
 
                 <!-- Add Subject and Register Student Description -->
                 <div class="row mt-4">
@@ -56,25 +56,6 @@ $userEmail = $_SESSION['email'];
                             <p>This section allows you to register a new student in the system. Click the button below to proceed with the registration process.</p>
                             <a href="student/register.php" class="btn btn-primary">Register Student</a>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Student List Table -->
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <h4>Student List</h4>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Subject Code</th>
-                                    <th>Subject Name</th>
-                                    <th>Options</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Your table data here -->
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>

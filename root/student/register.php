@@ -1,6 +1,6 @@
 <?php
 // Start the session and include necessary functions
-session_start();
+
 include(__DIR__ . '/../functions.php');
 
 // Protect this page with guard to check if the user is logged in

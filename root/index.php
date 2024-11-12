@@ -3,6 +3,8 @@ include 'functions.php';
 
 $errors = [];
 
+
+
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
@@ -23,13 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Redirect if login is successful
     if (empty($errors)) {
-        $_SESSION['user'] = $email;
+        // Store the email in session with the key 'email'
+        $_SESSION['email'] = $email;
         header("Location: dashboard.php");
         exit;
-    } else {
-        // Clear the email and password if there are errors
-        $email = '';
-        $password = '';
     }
 }
 ?>
@@ -62,13 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="POST" novalidate>
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
-            <!-- Clear input if there are errors -->
-            <input type="text" name="email" id="email" class="form-control" value="<?php echo empty($errors) ? htmlspecialchars($email ?? '') : ''; ?>">
+            <input type="text" name="email" id="email" class="form-control" value="<?php echo htmlspecialchars($email ?? ''); ?>">
         </div>
         
         <div class="mb-3">
             <label for="password" class="form-label">Password:</label>
-            <input type="password" name="password" id="password" class="form-control" value="">
+            <input type="password" name="password" id="password" class="form-control">
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>

@@ -20,7 +20,25 @@ function validateLoginCredentials($email, $password) {
     }
     return $errors;
 }
+function addSubject($subjectCode, $subjectName) {
+    // Initialize the subjects array if it's not set
+    if (!isset($_SESSION['subjects'])) {
+        $_SESSION['subjects'] = [];
+    }
 
+    // Add the new subject
+    $_SESSION['subjects'][] = [
+        'subject_code' => $subjectCode,
+        'subject_name' => $subjectName
+    ];
+}
+function getSubjects() {
+    // Initialize the subjects array if not already set
+    if (!isset($_SESSION['subjects'])) {
+        $_SESSION['subjects'] = [];  // Initialize as an empty array if not set
+    }
+    return $_SESSION['subjects']; // Return the subjects from session
+}
 function checkLoginCredentials($email, $password, $users) {
     foreach ($users as $user) {
         if ($user['email'] === $email && $user['password'] === $password) {

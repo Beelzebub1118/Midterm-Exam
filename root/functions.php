@@ -7,7 +7,48 @@ function getUsers() {
         ['email' => 'user2@email.com', 'password' => 'password2'],
     ];
 }
+function deleteStudent($id) {
+    $students = getStudents();
 
+    // Filter out the student with the specified ID
+    $students = array_filter($students, function($student) use ($id) {
+        return $student['id'] != $id;
+    });
+
+    // Reindex the array and save it back to the session
+    $_SESSION['students'] = array_values($students); // Reindex the array
+}
+
+function getStudents() {
+    if (!isset($_SESSION['students'])) {
+        $_SESSION['students'] = []; // Initialize as an empty array if not set
+    }
+    return $_SESSION['students'];
+}
+function getStudentById($id) {
+    $students = getStudents();
+    foreach ($students as $student) {
+        if ($student['id'] == $id) {
+            return $student;
+        }
+    }
+    return null; // Return null if the student is not found
+}
+function updateStudent($id, $name, $email) {
+    $students = getStudents();
+
+    // Find the student by ID and update their information
+    foreach ($students as &$student) {
+        if ($student['id'] == $id) {
+            $student['name'] = $name;
+            $student['email'] = $email;
+            break;
+        }
+    }
+
+    // Save the updated students array back to the session
+    $_SESSION['students'] = $students;
+}
 function validateLoginCredentials($email, $password) {
     $errors = [];
     if (empty($email)) {

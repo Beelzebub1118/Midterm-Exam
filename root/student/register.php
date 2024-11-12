@@ -1,6 +1,5 @@
 <?php
 // Start the session and include necessary functions
-session_start();
 include(__DIR__ . '/../functions.php');
 
 // Protect this page with guard to check if the user is logged in
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'first_name' => $firstName,
                 'last_name' => $lastName
             ];
-            
+
             // Save the updated students array back to the session
             $_SESSION['students'] = $students;
 
@@ -74,17 +73,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </nav>
 
         <!-- Error and success messages -->
-<?php if (!empty($error)): ?>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?php echo htmlspecialchars($error); ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-<?php elseif (!empty($successMessage)): ?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <?php echo htmlspecialchars($successMessage); ?>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-<?php endif; ?>
+        <?php if (!empty($error)): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?php echo htmlspecialchars($error); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php elseif (!empty($successMessage)): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo htmlspecialchars($successMessage); ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
 
         <!-- Registration form -->
         <form method="POST" class="mb-5">
@@ -127,7 +126,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><?php echo htmlspecialchars($student['last_name']); ?></td>
                             <td>
                                 <a href="edit.php?id=<?php echo $student['id']; ?>" class="btn btn-primary btn-sm">Edit</a>
+
+                                <!-- Delete Form -->
                                 <a href="delete.php?id=<?php echo $student['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
+
                                 <a href="delete.php?id=<?php echo $student['id']; ?>" class="btn btn-warning btn-sm">Attach Subject</a>
                             </td>
                         </tr>

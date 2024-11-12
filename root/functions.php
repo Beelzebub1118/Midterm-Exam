@@ -34,12 +34,15 @@ function checkUserSessionIsActive() {
     return isset($_SESSION['user']);
 }
 
+// functions.php
+
 function guard() {
-    if (!checkUserSessionIsActive()) {
+    if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
         header("Location: index.php");
         exit;
     }
 }
+
 
 function displayErrors($errors) {
     if (!empty($errors)) {

@@ -106,7 +106,8 @@ if (isset($_GET['id'])) {
 
         
             <button type="submit" class="btn btn-primary">Save Changes</button>
-            <a href="../register.php" class="btn btn-secondary">Cancel</a>
+            <a href="#" class="btn btn-secondary" onclick="window.location.href='../student/register.php';">Cancel</a>
+
         </form>
     </div>
 

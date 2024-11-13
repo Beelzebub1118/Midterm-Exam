@@ -120,8 +120,20 @@ function guard() {
         exit;
     }
 }
-
-
+function AttachSubject($subject_data) {
+    if (empty($subject_data)) {
+        return ["At least one subject should be selected"];
+    }
+    return [];
+}
+function getSubject($subject_code) {
+    foreach ($_SESSION['subjects'] as $index => $subject) {
+        if ($subject['subject_code'] === $subject_code) {
+            return $index;
+        }
+    }
+    return null;
+}
 function displayErrors($errors) {
     if (!empty($errors)) {
         echo "<ul style='color: red;'>";

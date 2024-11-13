@@ -130,7 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <!-- Delete Form -->
                                 <a href="delete.php?id=<?php echo $student['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
 
-                                <a href="delete.php?id=<?php echo $student['id']; ?>" class="btn btn-warning btn-sm">Attach Subject</a>
+                                <a href="attached_subject.php?student_id=<?php echo $student['id']; ?>" class="btn btn-warning btn-sm">Attach Subject</a>
+
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
